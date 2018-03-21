@@ -26,17 +26,20 @@ ApplicationWindow {
     property color c4: "black"
     property color c5: "#333333"
     property string tool: ""
-    property string urlYT: 'https://www.youtube.com/user/MatiasPonceOk'
-    property string urlInst: 'https://www.instagram.com/matiasponce_10/'
-    property string urlTT: 'https://twitter.com/MatiasPonceYT'
-    property string urlFB: 'https://www.facebook.com/matiasponceoficial'
+
+
+    property string urlYT: 'https://www.futurock.fm/'
+    property string urlInst: 'https://www.instagram.com/futurockok/'
+    property string urlTT: 'https://twitter.com/futurockok?lang=es'
+    property string urlFB: 'https://www.facebook.com/FuturockOk/'
+    property string urlRC: 'https://radiocut.fm/radiostation/futurock/listen/'
 
     property string colorBarra:'white'
 
 
     Settings{
         id: appSettings
-        category: 'conf-rickypapi'
+        category: 'conf-futurock'
         property string bgColorEditor: 'black'
         property string txtColorEditor: 'white'
         property int pyLineRH1: 0
@@ -46,6 +49,7 @@ ApplicationWindow {
         property string uUrlInst: app.urlInst
         property string uUrlTT: app.urlTT
         property string uUrlFB: app.urlFB
+        property string uUrlRC: app.urlRC
         property int red: 0
         property string uRS: ''
         property bool uRCRev: false
@@ -74,7 +78,7 @@ ApplicationWindow {
                     w:parent.width*0.9
                     anchors.horizontalCenter: parent.horizontalCenter
                     h: w
-                    t: modwvyutun.url.indexOf(app.urlYT)===0?"\uf167":"\uf0ac"
+                    t: ""
 
                     a: appSettings.red===0
                     c: a?'white':'red'
@@ -82,6 +86,13 @@ ApplicationWindow {
                     o: !a?0.0:1.0
                     r:app.fs*0.2
 
+                    Image {
+                        id: imgbnt1
+                        width: parent.width
+                        height: width
+                        opacity: appSettings.red===1?1.0:0.5
+                        source: "https://www.futurock.fm/sites/default/files/media/image/futurock_default_preview.jpg"
+                    }
                     onClicking: {
                         appSettings.red=0;
                     }
@@ -90,7 +101,6 @@ ApplicationWindow {
                             appSettings.uUrlYT = app.urlYT
                             modwvyutun.url=appSettings.uUrlYT
                             appSettings.red=0;
-                            console.log('--->>>>>'+appSettings.uUrlYT)
                         }
                     }
                 }
@@ -168,8 +178,6 @@ ApplicationWindow {
                 }
                 Item{width: parent.width*0.9;height: width}
                 Item{width: parent.width*0.9;height: width}
-
-
                 Boton{
                     id: btnDLV
                     w:parent.width*0.9
@@ -195,17 +203,17 @@ ApplicationWindow {
                     anchors.horizontalCenter: parent.horizontalCenter
                     opacity: enabled ?1.0:0.5
                     h: w
-                    t: modwvtt.url.indexOf("https://twitter.com/hashtag/RickyPapiNavegadorWeb?src=hash")===0?"\uf086":"\uf0ac"
+                    t: modwvinfo.url.indexOf("https://twitter.com/hashtag/FutuRockNavegadorWeb?src=hash")===0?"\uf086":"\uf0ac"
 
-                    a: appSettings.red===4
+                    a: appSettings.red===5
                     c: a?'white':'green'
                     b: a?'green':'white'
                     o: !a?0.0:1.0
                     r:app.fs*0.2
 
                     onClicking: {
-                        modwvinfo.url = "https://twitter.com/hashtag/RickyPapiNavegadorWeb?src=hash"
-                        appSettings.red=4;
+                        modwvinfo.url = "https://twitter.com/hashtag/FutuRockNavegadorWeb?src=hash"
+                        appSettings.red=5;
                     }
                 }
                 Item{width: parent.width*0.9;height: width}
@@ -272,7 +280,8 @@ ApplicationWindow {
             ModWebView{id:modwvig;red:1;url:appSettings.uUrlInst;}
             ModWebView{id:modwvtt;red:2;url:appSettings.uUrlTT;}
             ModWebView{id:modwvfb;red:3;url:appSettings.uUrlFB;}
-            ModWebView{id:modwvinfo;red:4;url:"https://twitter.com/hashtag/RickyPapiNavegadorWeb?src=hash";}
+            ModWebView{id:modwvrc;red:4;url:appSettings.uUrlRC;}
+            ModWebView{id:modwvinfo;red:5;url:"https://twitter.com/hashtag/FutuRockNavegadorWeb?src=hash";}
             LineResizeH{
                 id:lineRH;
                 y:visible?appSettings.pyLineRH1: parent.height;
