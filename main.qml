@@ -62,6 +62,7 @@ ApplicationWindow {
             width: app.width*0.02
             height: app.height
             color: "#fff"
+            z:container.z+99999
             Rectangle{
                 width: 1
                 height: parent.height
@@ -79,6 +80,7 @@ ApplicationWindow {
                     anchors.horizontalCenter: parent.horizontalCenter
                     h: w
                     t: ""
+                    d:'www.futurock.fm'
 
                     a: appSettings.red===0
                     c: 'black'
@@ -111,6 +113,8 @@ ApplicationWindow {
                     h: w
 
                     t: modwvig.url.indexOf(app.urlInst)===0?"\uf16d":"\uf0ac"
+                    d:'www.instagram.com/futurockok'
+
                     a: appSettings.red===1
                     c: a?'white':'blue'
                     b: a?'blue':'white'
@@ -134,6 +138,7 @@ ApplicationWindow {
                     anchors.horizontalCenter: parent.horizontalCenter
                     h: w
                     t: modwvtt.url.indexOf(app.urlTT)===0?"\uf099":"\uf0ac"
+                    d:'www.twitter.com/futurockok'
 
                     a: appSettings.red===2
                     c: a?'white':'#43b7f1'
@@ -158,6 +163,7 @@ ApplicationWindow {
                     anchors.horizontalCenter: parent.horizontalCenter
                     h: w
                     t: modwvfb.url.indexOf(app.urlFB)===0?"\uf09a":"\uf0ac"
+                    d:'www.facebook.com/FutuRockOk'
 
                     a: appSettings.red===3
                     c: a?'white':'#117aca'
@@ -182,6 +188,7 @@ ApplicationWindow {
                     anchors.horizontalCenter: parent.horizontalCenter
                     h: w
                     t:""
+                    d:'www.radiocut.com/futurock'
                     Text {
                         id: lrc
                         text: "<b>RC</b>"
@@ -213,6 +220,7 @@ ApplicationWindow {
                     opacity: enabled ?1.0:0.5
                     h: w
                     t: "\uf019"
+                    d:'Ver panel de Descargas'
 
                     a: appSettings.dlvVisible
                     c: a?'white':'green'
@@ -232,6 +240,7 @@ ApplicationWindow {
                     opacity: enabled ?1.0:0.5
                     h: w
                     t: modwvinfo.url.indexOf("https://twitter.com/hashtag/FutuRockNavegadorWeb?src=hash")===0?"\uf086":"\uf0ac"
+                    d:'Ver información sobre este navegador.'
 
                     a: appSettings.red===5
                     c: a?'white':'green'
@@ -255,6 +264,7 @@ ApplicationWindow {
                     b: up ? 'red':'#ccc'
                     c: up ? 'white':'#333'
                     t: "\uf021"
+                    d:'Actualizar el código fuente del navegador desde GitHub.com'
                     o:1.0
                     r:app.fs*0.2
                     property bool up: false
@@ -262,7 +272,7 @@ ApplicationWindow {
                         if(!btnUpdate.up){
                             btnUpdate.enabled=false
                             var fd=unik.getPath(3)+'/unik'
-                            var downloaded = unik.downloadGit('https://github.com/nextsigner/rickypapi', fd)
+                            var downloaded = unik.downloadGit('https://github.com/nextsigner/futurock', fd)
                             btnUpdate.enabled=true;
                             if(downloaded){
                                 unik.restartApp()
@@ -280,6 +290,7 @@ ApplicationWindow {
                     opacity: enabled ?1.0:0.5
                     h: w
                     t: "\uf011"
+                    d:'Apagar (Al hacer click en el timer central se vuelve a unik)'
 
                     c: '#333'
                     b: '#fff'
