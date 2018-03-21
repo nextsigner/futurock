@@ -81,8 +81,8 @@ ApplicationWindow {
                     t: ""
 
                     a: appSettings.red===0
-                    c: a?'white':'red'
-                    b: a?'red':'white'
+                    c: 'black'
+                    b: 'white'
                     o: !a?0.0:1.0
                     r:app.fs*0.2
 
@@ -173,6 +173,30 @@ ApplicationWindow {
                             appSettings.uUrlFB = app.urlFB
                             modwvfb.url=appSettings.uUrlFB
                             appSettings.red=3;
+                        }
+                    }
+                }
+                Boton{
+                    id: btnRadioCut
+                    w:parent.width*0.9
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    h: w
+                    t: modwvfb.url.indexOf(app.urlFB)===0?"\uf09a":"\uf0ac"
+
+                    a: appSettings.red===3
+                    c: a?'white':'#117aca'
+                    b: a?'#117aca':'white'
+                    o: !a?0.0:1.0
+                    r:app.fs*0.2
+
+                    onClicking: {
+                        appSettings.red=4;
+                    }
+                    onPChanged: {
+                        if(p){
+                            appSettings.uUrlRC = app.urlRC
+                            modwvrc.url=appSettings.uUrlRC
+                            appSettings.red=4;
                         }
                     }
                 }
