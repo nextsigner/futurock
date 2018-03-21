@@ -181,11 +181,15 @@ ApplicationWindow {
                     w:parent.width*0.9
                     anchors.horizontalCenter: parent.horizontalCenter
                     h: w
-                    t: modwvfb.url.indexOf(app.urlFB)===0?"\uf09a":"\uf0ac"
-
-                    a: appSettings.red===3
-                    c: a?'white':'#117aca'
-                    b: a?'#117aca':'white'
+                    t:""
+                    Text {
+                        id: lrc
+                        text: "<b>RC</b>"
+                        font.pixelSize: parent.width*0.5
+                        anchors.centerIn: parent
+                        color: parent.a?'white':'#58ACFA'
+                    }                    a: appSettings.red===4
+                    b: a?'#58ACFA':'white'
                     o: !a?0.0:1.0
                     r:app.fs*0.2
 
