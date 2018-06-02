@@ -41,7 +41,7 @@ Item {
                     duration: 200
                     easing.type: Easing.InOutQuad
                 }
-        }        
+        }
         MouseArea{
             id:ma
             property bool pre: false
@@ -89,7 +89,7 @@ Item {
         Text {
             id: tip
             width: contentWidth
-            font.pixelSize: parent.height*0.7
+            height: app.fs*0.5
             anchors.centerIn: parent
             text:"..."
 

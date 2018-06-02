@@ -17,7 +17,7 @@ ApplicationWindow {
     width: 1400
     height: 600
     visibility:"Maximized"
-    title: 'RickyPapi Navergador Web'
+    title: 'FutuRock Navegador Web'
     color: '#333'
     property int fs: app.width*0.02
     property color c1: "#1fbc05"
@@ -36,6 +36,10 @@ ApplicationWindow {
 
     property string colorBarra:'white'
 
+    onClosing: {
+        //close.accepted = false
+        engine.load(appsDir+'/unik-tools/main.qml')
+    }
 
     Settings{
         id: appSettings
@@ -297,10 +301,10 @@ ApplicationWindow {
                     o: 1.0
                     r:app.fs*0.2
 
-                    onClicking:app.close()
+                    onClicking: Qt.quit()
                     onPChanged:{
                         if(p){
-                            Qt.quit()
+                            app.close()
                         }
                     }
 
